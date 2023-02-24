@@ -27,3 +27,39 @@ Client^
 ![serveur](https://user-images.githubusercontent.com/67145585/221232133-00ffd67b-f7bc-4411-9207-9275fea50812.png)
 
 Serveur en mode log ^
+
+
+## Pour l'installer
+
+### 1. Compiler les fichiers
+- Modifier les varibales d'adresse/ports/chemins d'accès des fichiers .java
+- Compiler les fichiers dans deux projets séparés:
+- VeryCoolClient.jar</br>
+  -->Contenu du dossier Client</br>
+- VeryCoolServer.jar</br>
+  --> Contenu du dossier Serveur</br>
+  
+(Dépendances pour les deux projets dans [pom.xml](https://github.com/DR34M-M4K3R/Very_Cool_Local_Mailing_App/blob/main/pom.xml)
+
+
+
+
+### 2.
+Créer un service dans `/usr/lib/systemd/system` nommé `verycoolserver.service` et écrire dedans:
+
+`[Unit]`</br>
+`Description=Un serveur tres cool`</br>
+`[Service]`</br>
+`ExecStart=java -jar /<CHEMIN D'ACCES ABSOLU DU FICHIER>/VeryCoolServer.jar`</br>
+`User=pi`</br>
+`[Install]`</br>
+`WantedBy=multi-user.target`</br>
+
+### 3.
+Placer le fichier lancer_serveur.sh avec le fichier compilé VeryCoolServer.jar 
+
+### 4. 
+Donner les droits d'exécution au fichier lancer_seveur.sh et lancer le serveur avec
+
+### 5.
+Lancez le ficher compilé VeryCoolClient.jar sur une machine du réseau, et c'est parti!
